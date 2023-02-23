@@ -14,7 +14,11 @@
                 <!-- ========= Travel box ========= -->
                 <div class="new_travel_section">
                     <div class="travel_contain_slider top30px">
-                        <img class="img_viaje--viaje" src="../img/viajes/<?php echo $viaje->imagen; ?>.png" alt="" />
+                        <picture>
+                            <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.webp" type="image/webp">
+                            <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png" type="image/png">
+                            <img class="img_viaje--viaje" loading="lazy" src="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png" alt="Imagen Viaje">
+                        </picture>
                         <div class="travel_box--agenda">
                             <span><?php echo $viaje->fecha; ?></span>
                             <div class="title_travel_box--agenda width-aviable">
@@ -43,7 +47,11 @@
                 <!-- ========= Travel box ========= -->
                 <div class="new_travel_section expired_filter">
                     <div class="travel_contain_slider">
-                        <img class="img_viaje--viaje" src="../img/viajes/<?php echo $viaje->imagen; ?>.png" alt="" />
+                        <picture>
+                            <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.webp" type="image/webp">
+                            <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png" type="image/png">
+                            <img class="img_viaje--viaje" loading="lazy" src="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png" alt="Imagen Viaje">
+                        </picture>
                         <div class="travel_box--agenda">
                             <span><?php echo $viaje->fecha; ?></span>
                             <div class="title_travel_box--agenda width-aviable">
