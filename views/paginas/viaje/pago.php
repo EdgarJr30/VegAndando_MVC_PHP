@@ -78,7 +78,7 @@
 
     <!-- ========== CONTACT FORM ========== -->
     <form class="form" action="https://formspree.io/f/myyveqzb" method="POST" id="form">
-        <?php include_once __DIR__ . './form.php'; ?>
+        <?php include_once __DIR__ . '/form.php'; ?>
     </form>
 
     <!-- ========== Volver Atras Button =============== -->
