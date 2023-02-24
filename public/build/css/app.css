@@ -2283,8 +2283,8 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 80%;
-  padding: 4rem 4rem;
+  width: 90%;
+  padding: 4rem 0.5rem;
   background-color: var(--dark-light-blue);
   border-radius: 3rem;
   margin: 0 auto;
@@ -2313,6 +2313,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .title_viaje h1 {
@@ -2328,7 +2329,6 @@ footer {
 }
 
 .title_viaje span {
-  width: 60%;
   text-align: center;
   color: var(--dark-grey-text);
 }
@@ -2516,6 +2516,22 @@ footer {
 .v-line--viaje {
   border-left: 1px solid #fff;
   height: 18rem;
+}
+
+.frase_section--viaje {
+  height: 22rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 2rem;
+  background-color: var(--dark-light-blue);
+}
+
+.frase_section--viaje p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 100;
 }
 
 /* ============= Prohibido ============= */
@@ -2747,7 +2763,18 @@ footer {
 }
 @media only screen and (min-width: 768px) {
   .heading_viaje {
+    width: 80%;
+    padding: 4rem 4rem;
     flex-direction: row;
+  }
+  .title_viaje span {
+    width: 60%;
+  }
+  .frase_section--viaje {
+    width: 60%;
+  }
+  .frase_section--viaje p {
+    max-width: 70%;
   }
   .hero_image img {
     /* height: 95%; */
@@ -2756,6 +2783,9 @@ footer {
     outline: 2px solid var(--vega-yellow);
   }
   /* ============= Title Viaje ============= */
+  .title_viaje {
+    text-align: left;
+  }
   .title_viaje h1 {
     font-size: 44px;
   }

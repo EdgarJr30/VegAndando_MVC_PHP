@@ -97,7 +97,7 @@
     </section>
 
     <!-- ============= Frase Section =================-->
-    <section class="frase_section top60px">
+    <section class="frase_section--viaje top60px">
         <p><?php echo $viaje->descripcion; ?></p>
     </section>
 
