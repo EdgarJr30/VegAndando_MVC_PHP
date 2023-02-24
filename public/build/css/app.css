@@ -1603,7 +1603,6 @@ footer {
   position: absolute;
   flex-direction: column;
   width: 270px;
-  height: 266px;
   background-color: rgba(10, 25, 46, 0.78);
   border: solid 3px var(--white);
   -webkit-border: solid 3px var(--white);
@@ -2206,8 +2205,6 @@ footer {
     grid-row-gap: 0px;
   }
   .travel_box {
-    width: 253px;
-    height: 281px;
     justify-content: space-evenly;
   }
   .politics_box img {
@@ -2241,8 +2238,6 @@ footer {
     width: 30%;
   }
   .travel_box {
-    width: 282px;
-    height: 281px;
     justify-content: space-evenly;
   }
   .colors_desription img:nth-child(1) {
