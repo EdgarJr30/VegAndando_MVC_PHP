@@ -5,6 +5,7 @@ namespace Controllers;
 use MVC\Router;
 use Model\Viaje;
 use Intervention\Image\ImageManagerStatic as Image;
+use Model\ActvOpcional;
 use Model\Estatus;
 
 class ViajesController {
@@ -34,6 +35,7 @@ class ViajesController {
 
         $alertas = [];
         $estatus = Estatus::all('ASC');
+        $actvOpcionales = ActvOpcional::all('ASC');
         $viaje = new Viaje;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -104,7 +106,8 @@ class ViajesController {
             'titulo' => 'Registrar Viaje',
             'alertas' => $alertas,
             'estatus' => $estatus,
-            'viaje' => $viaje
+            'viaje' => $viaje,
+            'actvOpcionales' => $actvOpcionales
         ]);
     }
 
@@ -116,6 +119,7 @@ class ViajesController {
 
         $alertas = [];
         $estatus = Estatus::all('ASC');
+        $actvOpcionales = ActvOpcional::all('ASC');
 
         //Validar el ID
         $id = $_GET['id'];
@@ -208,7 +212,8 @@ class ViajesController {
             'titulo' => 'Actualizar Viaje',
             'alertas' => $alertas,
             'estatus' => $estatus,
-            'viaje' => $viaje
+            'viaje' => $viaje,
+            'actvOpcionales' => $actvOpcionales
         ]);
     }
 

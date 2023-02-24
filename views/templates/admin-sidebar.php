@@ -14,10 +14,10 @@
             </span>
         </a>
 
-        <a href="/admin/detalles" class="dashboard__enlace <?php echo pagina_actual('/detalles') ? 'dashboard__enlace--actual' : ''; ?>">
+        <a href="/admin/actividad_opcional" class="dashboard__enlace <?php echo pagina_actual('/actividad_opcional') ? 'dashboard__enlace--actual' : ''; ?>">
             <i class="fa-solid fa-calendar dashboard__icono"></i>
             <span class="dashboard__menu-texto">
-                Detalles Del Viaje
+                Actividad Opcional
             </span>
         </a>
     </nav>

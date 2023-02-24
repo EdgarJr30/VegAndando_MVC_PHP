@@ -20,6 +20,14 @@
                     <span class="top15px"><?php echo $viaje->descripcion; ?></span>
                 </div>
             </div>
+
+            <?php if (!empty($viaje->actvopcional)) {; ?>
+                <div class="actividad__opcional">
+                    <h4>Actividad Opcional</h4>
+                    <p><?php echo $viaje->actvopcional; ?></p>
+                </div>
+            <?php } ?>
+
             <!-- ============= Price Section =================-->
             <?php include __DIR__ . '/priceButton.php'; ?>
         </div>

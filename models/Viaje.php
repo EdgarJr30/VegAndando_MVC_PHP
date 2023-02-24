@@ -4,7 +4,7 @@ namespace Model;
 
 class Viaje extends ActiveRecord {
     protected static $tabla = 'viajes';
-    protected static $columnasDB = ['id', 'titulo', 'descripcion', 'ciudad', 'fecha', 'hora1', 'salida1', 'precio', 'imagen', 'estatus_id', 'provinciasalida1', 'provinciasalida2', 'provinciasalida3', 'hora2', 'hora3', 'salida2', 'salida3', 'visitaremos1', 'visitaremos2', 'visitaremos3', 'visitaremos4', 'visitaremos5', 'visitaremos6', 'visitaremos7', 'visitaremos8', 'imgincluye', 'dificultad', 'dificultadmsg', 'recomendacion', 'frase'];
+    protected static $columnasDB = ['id', 'titulo', 'descripcion', 'ciudad', 'fecha', 'hora1', 'salida1', 'precio', 'imagen', 'estatus_id', 'provinciasalida1', 'provinciasalida2', 'provinciasalida3', 'hora2', 'hora3', 'salida2', 'salida3', 'visitaremos1', 'visitaremos2', 'visitaremos3', 'visitaremos4', 'visitaremos5', 'visitaremos6', 'visitaremos7', 'visitaremos8', 'imgincluye', 'dificultad', 'dificultadmsg', 'recomendacion', 'frase', 'actvopcional', 'precio2', 'precio3'];
 
     public function __construct($args = []) {
         $this->id = $args['id'] ?? null;
@@ -37,6 +37,9 @@ class Viaje extends ActiveRecord {
         $this->dificultadmsg = $args['dificultadmsg'] ?? '';
         $this->recomendacion = $args['recomendacion'] ?? '';
         $this->frase = $args['frase'] ?? '';
+        $this->actvopcional = $args['actvopcional'] ?? '';
+        $this->precio2 = $args['precio2'] ?? '';
+        $this->precio3 = $args['precio3'] ?? '';
     }
 
     public function validar() {

@@ -26,6 +26,13 @@ $router->post('/reestablecer', [AuthController::class, 'reestablecer']);
 
 //  Area de administracion
 $router->get('/admin/dashboard', [DashBoardController::class, 'index']);
+$router->get('/admin/actividad_opcional', [DashBoardController::class, 'indexActvOpcional']);
+$router->get('/admin/actividad_opcional/crear', [DashBoardController::class, 'crearActvOpcional']);
+$router->post('/admin/actividad_opcional/crear', [DashBoardController::class, 'crearActvOpcional']);
+$router->get('/admin/actividad_opcional/editar', [DashBoardController::class, 'editarActvOpcional']);
+$router->post('/admin/actividad_opcional/editar', [DashBoardController::class, 'editarActvOpcional']);
+$router->post('/admin/actividad_opcional/eliminar', [DashBoardController::class, 'eliminarActvOpcional']);
+
 
 //Area de viajes
 $router->get('/admin/viajes', [ViajesController::class, 'index']);

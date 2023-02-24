@@ -32,11 +32,31 @@
     </div>
 
     <div class="formulario__campo">
+        <label for="precio2" class="formulario__label">Precio - 2</label>
+        <input type="text" class="formulario__input" id="precio2" name="precio2" placeholder="Precio - 2 del viaje" value="<?php echo $viaje->precio2 ?? ''; ?>">
+    </div>
+
+    <div class="formulario__campo">
+        <label for="precio3" class="formulario__label">Precio - 3</label>
+        <input type="text" class="formulario__input" id="precio3" name="precio3" placeholder="Precio - 3 del viaje" value="<?php echo $viaje->precio3 ?? ''; ?>">
+    </div>
+
+    <div class="formulario__campo">
         <label for="estatus" class="formulario__label">Seleccione el estatus del viaje</label>
         <select class="formulario__select" name="estatus_id" id="estatus">
             <option value="">- Seleccionar Estatus -</option>
             <?php foreach ($estatus as $status) { ?>
                 <option <?php echo ($viaje->estatus_id === $status->id) ? 'selected' : ''; ?> value="<?php echo $status->id; ?>"><?php echo $status->status; ?></option>
+            <?php } ?>
+        </select>
+    </div>
+
+    <div class="formulario__campo">
+        <label for="actvopcional" class="formulario__label">Seleccione Actividad Opcional</label>
+        <select class="formulario__select" name="actvopcional" id="actvopcional">
+            <option value="">- Seleccionar Actividad -</option>
+            <?php foreach ($actvOpcionales as $actvOpcional) { ?>
+                <option <?php echo ($actvOpcional->viaje_id === $viaje->id) ? 'selected' : ''; ?> value="<?php echo $actvOpcional->actividad; ?>"><?php echo $actvOpcional->actividad; ?></option>
             <?php } ?>
         </select>
     </div>

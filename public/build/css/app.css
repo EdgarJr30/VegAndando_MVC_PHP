@@ -350,6 +350,10 @@ h3 {
   font-size: 3rem;
 }
 
+h4 {
+  font-size: 2.6rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2315,6 +2319,7 @@ footer {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .title_viaje p {
@@ -2325,6 +2330,23 @@ footer {
 .title_viaje span {
   width: 60%;
   text-align: center;
+  color: var(--dark-grey-text);
+}
+
+.actividad__opcional {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.actividad__opcional h4,
+.actividad__opcional p {
+  margin: 0;
+}
+
+.actividad__opcional p {
   color: var(--dark-grey-text);
 }
 
@@ -2361,6 +2383,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .places h3 {
@@ -2424,11 +2447,12 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 .travel_description_price h3 {
   color: var(--white);
-  font-size: 16px;
   font-weight: 100;
   margin: 0;
 }
@@ -2437,6 +2461,7 @@ footer {
   color: var(--vega-yellow);
   font-size: 32px;
   font-weight: 500;
+  margin: 0;
 }
 
 .travel_description_price span {
@@ -2686,7 +2711,6 @@ footer {
 /* ============= @Media Querys min-width ============= */
 /* ============= InfoViaje ============= */
 @media only screen and (min-width: 475px) {
-  /* ============= Rating ============= */
   /* ============= Lugares a visitar Section ============= */
   .places h3 {
     font-size: 16.5px;
@@ -2695,12 +2719,12 @@ footer {
     flex-direction: column;
     margin-left: 0;
     gap: 0;
+    text-align: left;
   }
   /* ============= Price y Ver mas Section ============= */
   .price_rutes {
     flex-direction: row;
   }
-  .travel_description_price,
   .view_more_section,
   .view_more_content,
   .schedule_button {
@@ -2783,15 +2807,12 @@ footer {
   }
   /* ============= Date ============= */
   /* .date_info {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 40px;
-  } */
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+    } */
 }
 @media only screen and (min-width: 1024px) {
-  .travel_description_price h3 {
-    font-size: 24px;
-  }
   .travel_adds_contain {
     gap: 100px;
     justify-content: space-evenly;
@@ -2817,17 +2838,14 @@ footer {
   .linea {
     padding: 0 70px;
   }
-  .travel_description_price h3 {
-    font-size: 24px;
-  }
   /* ============= Date ============= */
   /*  .date_info {
-      gap: 120px;
-  } */
+        gap: 120px;
+    } */
   /* No coge los estilos */
   /* .travel_date_title h3 {
-      font-size: 24px;
-  } */
+        font-size: 24px;
+    } */
   .date_info .travel_date {
     font-size: 48px;
   }

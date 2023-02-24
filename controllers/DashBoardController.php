@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use Model\ActvOpcional;
+use Model\Viaje;
 use MVC\Router;
 
 class DashBoardController {
@@ -11,29 +13,139 @@ class DashBoardController {
             header('Location: /login');
         }
 
-        // //Obtener ultimos registros
-        // $registros = Registro::get(5);
-        // foreach ($registros as $registro) {
-        //     $registro->usuario = Usuario::find($registro->usuario_id);
-        // }
-
-        // //Calcular los ingresos
-        // $virtuales = Registro::total('paquete_id', 2);
-        // $presenciales = Registro::total('paquete_id', 1);
-
-        // $ingresos = ($virtuales * 46.41) + ($presenciales * 189.54);
-
-        // //Obtener eventos con mas y menos lugares disponibles
-        // $menos_disponibles = Evento::ordenarLimite('disponibles', 'ASC', 5);
-        // $mas_disponibles = Evento::ordenarLimite('disponibles', 'DESC', 5);
-
         $router->render('admin/dashboard/index', [
-            'titulo' => 'Panel de Administración',
-            // 'registros' => $registros,
-            // 'ingresos' => $ingresos,
-            // 'menos_disponibles' => $menos_disponibles,
-            // 'mas_disponibles' => $mas_disponibles
-
+            'titulo' => 'Panel de Administración'
         ]);
+    }
+
+    public static function indexActvOpcional(Router $router) {
+        if (!is_admin()) {
+            header('Location: /login');
+        }
+
+        $actvOpcionales = ActvOpcional::all();
+        $viajes = Viaje::all();
+
+        foreach ($actvOpcionales as $actvOpcional) {
+            $actvOpcional->viajefrase = Viaje::find($actvOpcional->viaje_id);
+        }
+
+        $router->render('admin/actividad_opcional/index', [
+            'titulo' => 'Crear Actividad Opcional',
+            'actvOpcionales' => $actvOpcionales,
+            'viajes' => $viajes
+        ]);
+    }
+
+    public static function crearActvOpcional(Router $router) {
+
+        if (!is_admin()) {
+            header('Location: /login');
+        }
+
+        $alertas = [];
+        $viajes = Viaje::all('DESC');
+        $actvOpcional = new ActvOpcional;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            if (!is_admin()) {
+                header('Location: /login');
+            }
+
+            $actvOpcional->sincronizar($_POST);
+
+            //Validar
+            $alertas = $actvOpcional->validar();
+
+            if (empty($alertas)) {
+
+                // Guardar en la BD
+                $resultado = $actvOpcional->guardar();
+
+                if ($resultado) {
+                    header('Location: /admin/actividad_opcional');
+                }
+            }
+        }
+
+        $router->render('admin/actividad_opcional/crear', [
+            'titulo' => 'Registrar Actividad Opcional',
+            'alertas' => $alertas,
+            'viajes' => $viajes,
+            'actvOpcional' => $actvOpcional
+        ]);
+    }
+
+    public static function editarActvOpcional(Router $router) {
+
+        if (!is_admin()) {
+            header('Location: /login');
+        }
+
+        $alertas = [];
+        $viajes = Viaje::all('DESC');
+        $actvOpcional = new ActvOpcional;
+
+        //Validar el ID
+        $id = $_GET['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            header('Location: /admin/actividad_opcional');
+        }
+
+        //Obtener actividad a Editar
+        $actvOpcional = ActvOpcional::find($id);
+
+        if (!$actvOpcional) {
+            header('Location: /admin/actividad_opcional');
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            if (!is_admin()) {
+                header('Location: /login');
+            }
+
+            $actvOpcional->sincronizar($_POST);
+
+            //Validar
+            $alertas = $actvOpcional->validar();
+
+            if (empty($alertas)) {
+
+                // Guardar en la BD
+                $resultado = $actvOpcional->guardar();
+
+                if ($resultado) {
+                    header('Location: /admin/actividad_opcional');
+                }
+            }
+        }
+
+        $router->render('admin/actividad_opcional/editar', [
+            'titulo' => 'Actualizar Actividad Opcional',
+            'alertas' => $alertas,
+            'viajes' => $viajes,
+            'actvOpcional' => $actvOpcional
+        ]);
+    }
+
+    public static function eliminarActvOpcional() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!is_admin()) {
+                header('Location: /login');
+            }
+            $id = $_POST['id'];
+            $actvOpcional = ActvOpcional::find($id);
+            if (!isset($actvOpcional)) {
+                header('Location: /admin/actividad_opcional');
+            }
+            $resultado = $actvOpcional->eliminar();
+            if ($resultado) {
+                header('Location: /admin/actividad_opcional');
+            }
+        }
     }
 }
