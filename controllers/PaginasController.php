@@ -93,4 +93,11 @@ class PaginasController {
             'titulo' => 'Pagina no encontrada'
         ]);
     }
+
+    public static function haciendapark(Router $router) {
+
+        $router->render('paginas/haciendapark', [
+            'titulo' => 'Hacienda Park',
+        ]);
+    }
 }

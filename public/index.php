@@ -57,5 +57,6 @@ $router->get('/about', [PaginasController::class, 'about']);
 $router->get('/cookies', [PaginasController::class, 'cookies']);
 $router->get('/privacy', [PaginasController::class, 'privacy']);
 $router->get('/politicadepago', [PaginasController::class, 'politicadepago']);
+$router->get('/haciendapark', [PaginasController::class, 'haciendapark']);
 
 $router->comprobarRutas();

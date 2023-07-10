@@ -31,51 +31,79 @@
         </div>
         <!-- ========= Travel boxes ========= -->
         <div class="box_card_travel_section flex_column width-aviable top_margin">
-             <div class="product-card">
-            <div class="badge">Hot</div>
-            <div class="product-tumb">
-                <img src="https://i.imgur.com/xdbHo4E.png" alt="">
-            </div>
-            <div class="product-details">
-                <span class="product-catagory">Women,bag</span>
-                <h4><a href="">Women leather bag</a></h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                <div class="product-bottom-details">
-                    <div class="product-price"><small>$96.00</small>$230.99</div>
-                    <div class="product-links">
-                        <a href=""><i class="fa fa-heart"></i></a>
-                        <a href=""><i class="fa fa-shopping-cart"></i></a>
+            <!-- NEW SECTION HARD CODED -->
+            <div class="product-card">
+                <div class="product-tumb">
+                    <img class="hvr-grow" src="https://i.imgur.com/gd8PmJr.png" alt="">
+                </div>
+                <div class="product-details">
+                    <!-- <span class="product-catagory">Un parque de aventuras, con atracciones exclusivas en Republica
+                        Dominicana, como la única telesilla del país, y el zipline más largo y rápido.</span> -->
+                    <h4 class="product-details_new"><a class="hvr-grow" href="#">Guía Hacienda Park</a> <svg
+                            xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle"
+                            width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                            <path d="M12 9h.01" />
+                            <path d="M11 12h1v4h1" />
+                        </svg></h4>
+                    <p>Un parque de aventuras, con atracciones exclusivas en Republica
+                        Dominicana, como la única telesilla del país, y el zipline más largo y rápido.</p>
+                    <div class="product-bottom-details">
+                        <div class="product-price">US $99</div>
+                        <div class="product-links">
+                            <a class="hvr-grow" href="https://wa.link/ihh72h" target="_blank">Agenda ya!</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
-        </div>
+            <!-- NEW SECTION HARD CODED -->
+
             <?php foreach ($viajes as $viaje) {
-                if ($viaje->estatus_id == 1) {; ?>
+                if ($viaje->estatus_id == 1) {
+                    ; ?>
                     <!-- ========= Travel box ========= -->
                     <div class="travel_contain_slider top30px">
                         <div class="img_viaje">
                             <picture>
-                                <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.webp" type="image/webp" style="object-fit:cover; object-position: center; width:350px; height:600px;">
-                                <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png" type="image/png" style="object-fit:cover; object-position: center; width:350px; height:600px;">
-                                <img class="img_viaje" loading="lazy" src="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png" alt="Imagen Viaje" style="object-fit:cover; object-position: center; width:350px; height:600px;">
+                                <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.webp"
+                                    type="image/webp"
+                                    style="object-fit:cover; object-position: center; width:350px; height:600px;">
+                                <source srcset="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png"
+                                    type="image/png"
+                                    style="object-fit:cover; object-position: center; width:350px; height:600px;">
+                                <img class="img_viaje" loading="lazy"
+                                    src="<?php echo $_ENV['HOST'] . '/img/viajes/' . $viaje->imagen; ?>.png" alt="Imagen Viaje"
+                                    style="object-fit:cover; object-position: center; width:350px; height:600px;">
                             </picture>
                         </div>
                         <div class="travel_box">
-                            <span><?php echo $viaje->fecha; ?></span>
+                            <span>
+                                <?php echo $viaje->fecha; ?>
+                            </span>
                             <div class="title_travel_box width-aviable">
-                                <h2><?php echo $viaje->titulo; ?></h2>
-                                <p>RD$<?php echo $viaje->precio; ?></p>
+                                <h2>
+                                    <?php echo $viaje->titulo; ?>
+                                </h2>
+                                <p>RD$
+                                    <?php echo $viaje->precio; ?>
+                                </p>
                             </div>
                             <div class="paragraph_travel_box flex_column width-aviable">
-                                <p><?php echo $viaje->frase; ?></p>
+                                <p>
+                                    <?php echo $viaje->frase; ?>
+                                </p>
                             </div>
                             <div>
                                 <a href="/viaje/index?id=<?php echo $viaje->id; ?>" class="link_politics">Visitar Viaje</a>
                             </div>
                         </div>
                     </div>
-            <?php }
-            }; ?>
+                <?php }
+            }
+            ; ?>
         </div>
 
         <a href="./agendadeviajes" class="regular_button">Ver todos los Viajes</a>
@@ -111,7 +139,8 @@
                 </div>
                 <p class="text_icon_home">Blog</p>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=18294544509&text=Hola%20%F0%9F%99%8C%20quiero%20mas%20informaci%C3%B3n%20sobre%20sus%20excursiones" target="_blank" class="flex_column">
+            <a href="https://api.whatsapp.com/send?phone=18294544509&text=Hola%20%F0%9F%99%8C%20quiero%20mas%20informaci%C3%B3n%20sobre%20sus%20excursiones"
+                target="_blank" class="flex_column">
                 <div class="icon_select icon_3">
                     <img src="/img/svg+/call.svg" alt="" />
                 </div>
